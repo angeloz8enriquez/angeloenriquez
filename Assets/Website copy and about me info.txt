@@ -1,0 +1,28 @@
+Lead Developer
+Angelo S. Enriquez
+LinkedIn Profile
+"I'm a developer who loves exploring the frontier of AI-driven development. While I started in the world of Shopify and WordPress e-commerce, I've transitioned into 'vibe coding' web utilities as a side business."
+
+The Workflow
+My current workflow revolves around Antigravity, Firebase Studio, and Gemini-cli, using the latest models to architect and troubleshoot apps like AITokenSense and FontSniff.
+
+I'm a big believer in using the best tool for the job—whether that's designing prototypes in Stitch or running deep GEO audits with Claude. For me, it's all about the synergy between human creativity and agentic AI.
+
+Current Projects
+AyoSPC
+See & Do Places PH
+FontSniff
+Tools & Tech Stack
+Agentic IDE's
+Antigravity
+Cursor
+VS Code
+Firebase Studio
+AI Models Use
+Gemini Ai
+Claude Sonnet
+Command Line Tools
+Gemini CLI
+Codex CLI
+Antigravity CLI
+Architecting the Future with Agentic Intelligence
