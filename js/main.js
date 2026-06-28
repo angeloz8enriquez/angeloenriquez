@@ -121,42 +121,33 @@ document.addEventListener('DOMContentLoaded', () => {
   highlightActiveNav();
 
   // ---- Back to Top Button ----
-  initBackToTop();
-});
-
-// ---- Back to Top Logic ----
-function initBackToTop() {
-  const backToTopBtn = document.createElement('button');
-  backToTopBtn.className = 'back-to-top';
-  backToTopBtn.setAttribute('aria-label', 'Back to top');
-  backToTopBtn.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-    </svg>
-  `;
-  document.body.appendChild(backToTopBtn);
-
-  window.addEventListener('scroll', () => {
-    // Show button when user scrolls down 300px OR reaches the bottom
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
-    const scrollPos = window.scrollY + clientHeight;
-    
-    // Show if scrolled down > 400px OR within 50px of bottom
-    if (window.scrollY > 400 || (scrollHeight - scrollPos) < 50) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
-    }
-  }, { passive: true });
-
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  });
-}
+  }
+
+  // ---- Parallax Background ----
+  const bgParallax = document.getElementById('bg-parallax');
+  if (bgParallax) {
+    const updateParallax = () => {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+      bgParallax.style.backgroundPosition = `center ${percent}%`;
+    };
+    updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+  }
+});
 
 // ---- Particle System (Canvas-based) ----
 function initParticles() {
